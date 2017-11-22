@@ -44,13 +44,26 @@
                         <td>{{ $post->title }}</td>
                         <td style="text-align: center">{{($post->is_feature)? 'V':'X'}}</td>
                         <td>
-                            <a href="{{ route('admin.posts.edit', $post->id) }}">編輯</a>
-                            /
-                            <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}
-                                <button class="btn btn-link">刪除</button>
-                            </form>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center">
+                                        <th style="text-align: center">
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <td style="text-align: center">
+                                    <a href="{{ route('admin.posts.edit', $post->id) }}">編輯</a>
+                                </td>
+                                <td style="text-align: center">
+                                    <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button class="btn btn-link">刪除</button>
+                                    </form>
+                                </td>
+                                </tbody>
+                            </table>
                         </td>
                     </tr>
                 @endforeach
